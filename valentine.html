@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Give Love Another Chance 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin:0;
+    font-family: 'Shadows Into Light', cursive;
+    background: linear-gradient(to bottom, #ffe6f0, #ffd9e6);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    overflow:hidden;
+    color:#b30059;
+    text-align:center;
+  }
+
+  h1 {
+    font-family:'Pacifico', cursive;
+    font-size:2.5em;
+    margin-bottom:10px;
+  }
+
+  h2 {
+    font-size:1.8em;
+    margin-top:20px;
+    margin-bottom:20px;
+  }
+
+  .heart {
+    position:absolute;
+    width:40px;
+    height:40px;
+    background:#ffb3d9;
+    transform:rotate(-45deg);
+    border-radius:50% 50% 0 0;
+    animation: float 8s infinite;
+  }
+
+  @keyframes float {
+    0% {transform: translateY(0) rotate(-45deg);}
+    50% {transform: translateY(-100px) rotate(-45deg);}
+    100% {transform: translateY(0) rotate(-45deg);}
+  }
+
+  .btn {
+    background:#ff66b3;
+    border:none;
+    padding:15px 25px;
+    margin:10px;
+    font-size:1.2em;
+    border-radius:12px;
+    cursor:pointer;
+    transition: all 0.3s;
+    color:white;
+  }
+
+  .btn:hover {
+    transform: scale(1.1);
+    background:#ff3399;
+  }
+
+  .gift-box {
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    border:2px dashed #ff66b3;
+    border-radius:15px;
+    background:#ffd9e6;
+    font-size:1.5em;
+  }
+
+  #memory {
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    border-radius:15px;
+    background:#ffe6f0;
+    font-size:1.3em;
+    color:#b30059;
+    max-height:60vh;   /* scrollable height */
+    overflow-y:auto;   /* vertical scroll enabled */
+  }
+
+  #valentineChoices, #gifts {
+    display:none;
+  }
+
+  /* Optional: make floating hearts smaller on very small screens */
+  @media(max-width: 400px){
+    .heart{
+      width:20px;
+      height:20px;
+    }
+    .btn{
+      padding:10px 20px;
+      font-size:1em;
+    }
+    h1{font-size:2em;}
+    h2{font-size:1.5em;}
+  }
+</style>
+</head>
+<body>
+
+<h1>💌 Give Love Another Chance 💖</h1>
+<p>Hey Pooneh, I know things have been complicated… but I’d love to give us another chance.</p>
+
+<h2>Would you be my Valentine?</h2>
+<div id="valentineChoices">
+  <button class="btn" id="yesBtn">Yes 💖</button>
+  <button class="btn" id="noBtn">No 💔</button>
+</div>
+
+<div id="gifts">
+  <button class="btn gift-btn" data-gift="🌸 Flower Bouquet">Gift 1</button>
+  <button class="btn gift-btn" data-gift="🍫 Chocolate Box">Gift 2</button>
+  <button class="btn gift-btn" data-gift="🎁 Mystery Gift">Gift 3</button>
+</div>
+
+<div id="giftDisplay" class="gift-box"></div>
+
+<div id="memory">
+  <h2>Remember last Valentine’s? 💖</h2>
+  <p>
+    That morning I woke up completely ready for Valentine’s. I decorated the box carefully, feeling excited the whole time, and went to Fekr Kade — everyone there was smiling and even helped me fix the box in a sneaky way.  
+    I got you so many little things, all carefully picked to make you smile. 🌸 On my way, I stopped to pick a fresh rose in a glass bottle, ready to surprise you. I wore my best outfit from back then and called you, waiting by your door and filming the stairway until you came up.
+  </p>
+  <p>
+    You walked through the hall to open the lights, and when you saw me filming, your first words were “Hello!” with excitement. You came to open the door, and I was hiding the gifts and the flower behind me so you couldn’t see them right away.  
+    When I finally revealed everything, you were surprised and in such a rush we first went down to your house and opened all the gifts. Seeing your happiness, feeling your excitement… I was completely melted. 😍
+  </p>
+  <p>
+    Later that night, we went to Finger Tori, the Asian restaurant. I got ramen, you had Korean noodles, and we shared boiled dumplings. Every bite, every laugh, every little glance… I still remember it vividly.  
+    After dinner, we went back home. You were tired, so instead of continuing our other plans, we just rested in your bed. I hugged you close, feeling your warmth, your presence, and everything felt so perfect.
+  </p>
+  <p>
+    I wish I could experience that day again… the little details, the joy, the excitement, and yes, even teaching you to drive again. 🐾  
+    And of course, I’ll never forget Luna curling up with us, adding her little spark to the day.
+  </p>
+  <p style="font-weight:bold; margin-top:15px;">
+    I know you think you’re bad for me, and I know you feel like you’ve hurt me, because with me it feels like your darkness and your fears come alive.  
+    I accept it all. I embrace you in my arms with all of that combined — if you allow me — because not everyone is perfect, even me.  
+    Honestly, you are the only perfect girl for me, and I don’t want it any other way.  
+    Thank you… love. 💖
+  </p>
+  <img src="luna.png" alt="Luna and you" style="width:90%; max-width:400px; border-radius:15px; margin-top:15px;">
+
+</div>
+
+<script>
+  // Show Valentine choices after page load
+  const valentineChoices = document.getElementById('valentineChoices');
+  valentineChoices.style.display = 'block';
+
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const gifts = document.getElementById('gifts');
+  const giftDisplay = document.getElementById('giftDisplay');
+  const memory = document.getElementById('memory');
+
+  let denyCount = 0;
+
+  noBtn.addEventListener('click', () => {
+    denyCount++;
+    if(denyCount === 1){
+      alert("Aww… maybe you'll change your mind? 💖");
+    } else if(denyCount >=2){
+      valentineChoices.style.display='none';
+      gifts.style.display='none';
+      memory.style.display='block';
+      memory.scrollIntoView({behavior:"smooth"});
+    }
+  });
+
+  yesBtn.addEventListener('click', () => {
+    valentineChoices.style.display='none';
+    gifts.style.display='block';
+  });
+
+  document.querySelectorAll('.gift-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const gift = btn.getAttribute('data-gift');
+      giftDisplay.innerHTML = `You chose: ${gift} 🎉<br><br>Could you please send me a screenshot of your gift? 😘`;
+      giftDisplay.style.display='block';
+      gifts.style.display='none';
+    });
+  });
+
+  // Floating hearts creation
+  for(let i=0;i<20;i++){
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random()*100 + 'vw';
+    heart.style.animationDuration = 5+Math.random()*5+'s';
+    heart.style.width = 20+Math.random()*30+'px';
+    heart.style.height = heart.style.width;
+    heart.style.background = '#ffb3d9';
+    document.body.appendChild(heart);
+  }
+</script>
+
+</body>
+</html>
+
